@@ -1,0 +1,18 @@
+.rest {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 3%;
+}
+.card {
+    width: 30%;
+    border-radius: 10px;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    margin-bottom: 2%
+}
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

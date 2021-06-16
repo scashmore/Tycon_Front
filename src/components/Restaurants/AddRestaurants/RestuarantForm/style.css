@@ -1,0 +1,7 @@
+.restForm {
+    display: flex;
+    flex-direction: column;
+}
+.formBtn {
+    margin-top: 2%;
+}
