@@ -48,8 +48,9 @@ const Restaurants = () => {
                      return restaurant
                  })}
                  )
-          })();
-      });
+           });
+      })();
+    }, [])
     
     let newMenu = [];
     let newIngres = [];
