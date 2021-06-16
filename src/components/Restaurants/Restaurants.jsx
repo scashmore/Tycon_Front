@@ -38,7 +38,7 @@ const Restaurants = () => {
     }  
     
     useEffect(() => {
-        fetch(REACT_APP_API_URL + "/api/restaurants")
+        fetch(process.env.REACT_APP_API_URL + "/api/restaurants")
         .then(res => res.json())
         .then(data => {
             setRestaurants(data.data)
