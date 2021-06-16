@@ -22,12 +22,13 @@ const Restaurants = () => {
           socket = socketIOClient(process.env.REACT_APP_API_URL);
           socket.on("product-created", (data) => {
             setRestaurants(restaurants => {
-                return[...restaurants, data]}
+                return[...restaurants]}
                 )
           });
         })();
       }, []);
     
+<<<<<<< HEAD
     // useEffect(() => {
     //     (() => {
     //       socket = socketIOClient(process.env.REACT_APP_API_URL);
@@ -53,6 +54,32 @@ const Restaurants = () => {
     //       });
     //   })();
     // }, [])
+=======
+//     useEffect(() => {
+//         (() => {
+//           socket = socketIOClient(process.env.REACT_APP_API_URL);
+//           socket.on("product-deleted", (data) => {
+//               console.log(data);
+//             setRestaurants(restaurants.filter(restaurant => restaurant._id !== data._id)) })
+//           })();
+//       });
+    
+//      useEffect(() => {
+//         (() => {
+//           socket = socketIOClient(process.env.REACT_APP_API_URL);
+//           socket.on("product-updated", (data) => {
+//               console.log(data);
+//             setRestaurants(restaurants => {
+//                return restaurants.map( restaurant => {
+//                      if(restaurant._id === data._id) return data
+//                      return restaurant
+//                  })}
+//                  )
+//            });
+//       })();
+//     }, [])
+    
+>>>>>>> 604bc7104e5fdecd5c84d702a6457e7da391a21f
     let newMenu = [];
     let newIngres = [];
 
