@@ -169,7 +169,7 @@ const Restaurants = () => {
             <AddRestaurants generateRestaurant={generateRestaurant} />
             <div className="rest">
                 {restaurants.map((restaurants, index) => (
-                    <Card className="card" key={index}>
+                    <Card className="cardRest" key={index}>
                         <Card.Body>
                             <Card.Title className="title">
                                 <div>{`${restaurants.restName}`}</div>

@@ -8,12 +8,16 @@
 }
 .menuCard {
     width: 80% !important;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px rgba(75, 73, 73, 0.418), inset 0 0 9px white;
 }
 .menuTitle {
     text-align: center;
 }
 .ingreBtn {
     width: 60%;
+    border-radius: 40px 10px 40px 10px;
+    box-shadow: 10px 5px 5px rgba(75, 73, 73, 0.418), inset 0 0 9px white;
     margin-left: none;
     margin-right: none;
     font-size: 14px;

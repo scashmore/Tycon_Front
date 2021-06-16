@@ -1,9 +1,11 @@
 .ingreCard {
     width: 80% !important;
+    box-shadow: 10px 5px 5px rgba(75, 73, 73, 0.418), inset 0 0 9px white;
 }
 .ingreTitle {
     text-align: center;
 }
 .itemIngre {
     font-size: 16px;
+    text-align: start;
 }
