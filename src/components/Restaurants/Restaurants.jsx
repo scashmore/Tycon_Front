@@ -22,7 +22,7 @@ const Restaurants = () => {
           socket = socketIOClient(process.env.REACT_APP_API_URL);
           socket.on("product-created", (data) => {
             setRestaurants(restaurants => {
-                return[...restaurants, data]}
+                return[...restaurants]}
                 )
           });
         })();
