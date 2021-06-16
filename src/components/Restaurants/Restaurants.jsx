@@ -59,7 +59,7 @@ const Restaurants = () => {
 
             }));
         
-        fetch("http://localhost:3001/api/restaurant", {
+        fetch(process.env.REACT_APP_API_URL +"/api/restaurant", {
             method: "POST",
             body: JSON.stringify({
                 restName: name.charAt(0).toUpperCase() + name.slice(1),
