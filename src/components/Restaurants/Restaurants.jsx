@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import io from 'socket.io-client';
+import socketIOClient from 'socket.io-client';
 import { Card, Button, Modal } from 'react-bootstrap';
 import AddRestaurants from './AddRestaurants/AddRestaurants'
 import Menu from './Menu/Menu'
@@ -7,6 +7,7 @@ import EditForm from './EditForm/EditForm';
 import Header from './Header/Header';
 import './style.css';
 import { deleteRestaurantById } from '../../api';
+let socket;
 
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState([]);  
@@ -16,7 +17,16 @@ const Restaurants = () => {
 
     const [modalId1, setModalId1] = useState('')
 
-   
+    useEffect(() => {
+        (() => {
+          socket = socketIOClient(process.env.REACT_APP_API_URL);
+          socket.on("product-created", (data) => {
+            setRestaurants(restaurants => {
+                return[...restaurants, data]}
+                )
+          });
+        })();
+      }, []);
     
     let newMenu = [];
     let newIngres = [];
