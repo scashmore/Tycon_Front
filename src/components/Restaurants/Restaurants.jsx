@@ -28,14 +28,14 @@ const Restaurants = () => {
         })();
       }, []);
     
-    useEffect(() => {
-        (() => {
-          socket = socketIOClient(process.env.REACT_APP_API_URL);
-          socket.on("product-deleted", (data) => {
-              console.log(data);
-            setRestaurants(restaurants.filter(restaurant => restaurant._id !== data._id)) })
-          })();
-      });
+//     useEffect(() => {
+//         (() => {
+//           socket = socketIOClient(process.env.REACT_APP_API_URL);
+//           socket.on("product-deleted", (data) => {
+//               console.log(data);
+//             setRestaurants(restaurants.filter(restaurant => restaurant._id !== data._id)) })
+//           })();
+//       });
     
 //      useEffect(() => {
 //         (() => {
