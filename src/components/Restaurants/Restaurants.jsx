@@ -37,20 +37,20 @@ const Restaurants = () => {
           })();
       });
     
-     useEffect(() => {
-        (() => {
-          socket = socketIOClient(process.env.REACT_APP_API_URL);
-          socket.on("product-updated", (data) => {
-              console.log(data);
-            setRestaurants(restaurants => {
-               return restaurants.map( restaurant => {
-                     if(restaurant._id === data._id) return data
-                     return restaurant
-                 })}
-                 )
-           });
-      })();
-    }, [])
+//      useEffect(() => {
+//         (() => {
+//           socket = socketIOClient(process.env.REACT_APP_API_URL);
+//           socket.on("product-updated", (data) => {
+//               console.log(data);
+//             setRestaurants(restaurants => {
+//                return restaurants.map( restaurant => {
+//                      if(restaurant._id === data._id) return data
+//                      return restaurant
+//                  })}
+//                  )
+//            });
+//       })();
+//     }, [])
     
     let newMenu = [];
     let newIngres = [];
