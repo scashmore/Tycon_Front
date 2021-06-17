@@ -24,9 +24,7 @@ const Restaurants = () => {
               console.log(data)
               
             setRestaurants(restaurants => {
-                const combinedData = [...restaurants, data];
-                // let filteredData= combinedData.filter((value, index, self) => self.findIndex((m) => m._id === value._id) === index);
-                return combinedData}
+                return [...restaurants, data]}
                 )
           });
         })();
