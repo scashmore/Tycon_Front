@@ -22,36 +22,39 @@ const Restaurants = () => {
           socket = socketIOClient(process.env.REACT_APP_API_URL);
           socket.on("product-created", (data) => {
               console.log(data)
+              
             setRestaurants(restaurants => {
-                return[...restaurants, data]}
+                const combinedData = [...restaurants, data];
+                // let filteredData= combinedData.filter((value, index, self) => self.findIndex((m) => m._id === value._id) === index);
+                return combinedData}
                 )
           });
         })();
       }, []);
     
-//     useEffect(() => {
-//         (() => {
-//           socket = socketIOClient(process.env.REACT_APP_API_URL);
-//           socket.on("product-deleted", (data) => {
-//               console.log(data);
-//             setRestaurants(restaurants.filter(restaurant => restaurant._id !== data._id)) })
-//           })();
-//       });
+    useEffect(() => {
+        (() => {
+          socket = socketIOClient(process.env.REACT_APP_API_URL);
+          socket.on("product-deleted", (data) => {
+              console.log(data);
+            setRestaurants(restaurants.filter(restaurant => restaurant._id !== data._id)) })
+          })();
+      });
     
-//      useEffect(() => {
-//         (() => {
-//           socket = socketIOClient(process.env.REACT_APP_API_URL);
-//           socket.on("product-updated", (data) => {
-//               console.log(data);
-//             setRestaurants(restaurants => {
-//                return restaurants.map( restaurant => {
-//                      if(restaurant._id === data._id) return data
-//                      return restaurant
-//                  })}
-//                  )
-//            });
-//       })();
-//     }, [])
+     useEffect(() => {
+        (() => {
+          socket = socketIOClient(process.env.REACT_APP_API_URL);
+          socket.on("product-updated", (data) => {
+              console.log(data);
+            setRestaurants(restaurants => {
+               return restaurants.map( restaurant => {
+                     if(restaurant._id === data._id) return data
+                     return restaurant
+                 })}
+                 )
+           });
+      })();
+    }, [])
     
     let newMenu = [];
     let newIngres = [];
@@ -84,15 +87,15 @@ const Restaurants = () => {
         for (var i = 0; i < parseInt(menu); i++) {
             newMenu.push({ item: `item` + ` ` + `${i + 1}`, description: '', idx: `${Date.now() + i}`, ingres: [] });
         };
-        setRestaurants(restaurants.concat(
-            {
-                restName: name.charAt(0).toUpperCase() + name.slice(1),
-                restCuisine: cuisine.charAt(0).toUpperCase() + cuisine.slice(1),
-                restMenu: newMenu,
-                restMenuNum: parseInt(menu),
-                restId: id
+        // setRestaurants(restaurants.concat(
+        //     {
+        //         restName: name.charAt(0).toUpperCase() + name.slice(1),
+        //         restCuisine: cuisine.charAt(0).toUpperCase() + cuisine.slice(1),
+        //         restMenu: newMenu,
+        //         restMenuNum: parseInt(menu),
+        //         restId: id
 
-            }));
+        //     }));
         
         fetch(process.env.REACT_APP_API_URL +"/api/restaurant", {
             method: "POST",
